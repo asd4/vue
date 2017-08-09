@@ -14,32 +14,56 @@
 </head>
 
 <body>
-    
-    <div id="app" class="container">
-        <h1>Boot</h1>
-        <ul class="list-group">
-            <li v-for="story in stories" class="list-group-item">
-                {{story}}
-            </li>
-        </ul>
-    </div>
 
+    <div class="container">
+        <h1>Type 2 numbers and choose operation.</h1>
+        <form action="" class="form-inline">
+            <input type="number" v-model.number="a" class="form-control">
+            <select name="" id="" v-model="operator" class="form-control">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+            <input type="number" v-model.number="b" class="form-control">
+            <button type="submit" @click.prevent="calculate" class="btn btn-primary">계산</button>
+        </form>
+        <h2>Result : {{a}} {{operator}} {{b}} = {{c}}</h2>
+        <pre>{{ $data }}</pre>        
+    </div>
+    
     <!-- Plugin Script -->
     <script src="http://vuejs.org/js/vue.js"></script>
 
     <!-- Script -->
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                message: 'Our king is dead!',
-                stories: [
-                    "I crashed my car today! 1",
-                    "I crashed my car today! 2",
-                    "I crashed my car today! 3"
-                ],
-            },
-        });
+    new Vue({
+        el : '.container',
+        data : {
+            a : 1,
+            b : 2,
+            c : null,
+            operator : "+"
+        },
+        methods : {
+            calculate : function(){
+                switch(this.operator){
+                    case "+" :
+                        this.c = this.a + this.b
+                        break;
+                    case "-" :
+                        this.c = this.a - this.b
+                        break;
+                    case "*" :
+                        this.c = this.a * this.b
+                        break;
+                    case "/" :
+                        this.c = this.a / this.b
+                        break;                                                                        
+                }
+            }
+        }
+    });
     </script>
     <!-- //Script -->
 
