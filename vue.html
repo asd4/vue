@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    <div id="app" class="container">
+        <h1>Boot</h1>
+        <ul class="list-group">
+            <li v-for="story in stories" class="list-group-item">
+                {{story}}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Plugin Script -->
+    <script src="http://vuejs.org/js/vue.js"></script>
+
+    <!-- Script -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Our king is dead!',
+                stories: [
+                    "I crashed my car today! 1",
+                    "I crashed my car today! 2",
+                    "I crashed my car today! 3"
+                ],
+            },
+        });
+    </script>
+    <!-- //Script -->
+
+</body>
+
+</html>
